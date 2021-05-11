@@ -1,0 +1,21 @@
+from flask import Flask 
+from flask_sqlalchemy import SQLAlchemy 
+
+app = Flask(__name__)
+
+@app.route('/')
+@app.route('/home')
+def home():
+    return 'This is my TODO list'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:root@34.105.221.153:3306/flask_instance"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app) 
+
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    task = db.Column(db.String(30), nullable=False)
+    complete = db.Column(db.Boolean, nullable=False)
+
+if __name__=='__main__':
+    app.run(debug=True, host='127.0.0.1')

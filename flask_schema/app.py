@@ -14,4 +14,4 @@ class Users(db.Model):
     last_name = db.Column(db.String(30), nullable=False)
 
 if __name__=='__main__':
-    app.run(debug==True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
