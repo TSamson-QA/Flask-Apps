@@ -23,6 +23,7 @@ def update(name):
     db.session.commit()
     return first_game.name
 
+#Exercise: add delete function completed
 @app.route('/delete')
 def delete():
     game_to_delete = Games.query.first()
