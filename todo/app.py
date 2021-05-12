@@ -24,7 +24,7 @@ class Todo(db.Model):
 @app.route('/todo')
 def todo():
     all_todo = Todo.query.all()
-    return str(all_todo)
+    return str(all_todo[0].task)
     #find way to print/return entries from table?
 
 if __name__=='__main__':
