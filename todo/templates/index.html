@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Todo App</h1>
+
+{% for todo in all_todos %}
+    <p>{{ todo.id }} {{ todo.task }}
+    {% if todo.complete == True %} 
+    &#9989
+    {% endif %}
+    {% if todo.complete == False %} 
+    &#10060
+    {% endif %}
+    </p>
+{% endfor %}
+
+{% endblock body %}
